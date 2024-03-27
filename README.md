@@ -1,0 +1,2 @@
+# GemoriaBot
+Bot for Gemoria

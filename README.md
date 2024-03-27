@@ -1,2 +1,2 @@
-# GemoriaBot
+# Gemoria Bot
 Bot for Gemoria

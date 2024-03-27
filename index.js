@@ -1,23 +1,11 @@
-/*
-
-continuare da:
-
-"./commands/ticketing/tck-add.js"
-
-*/
-
 const fs = require("fs");
-const yaml = require("yaml");
+require("dotenv").config();
 
 const BotClient = require("./structures/BotClient");
 
-// Token acquisition //
-const config = yaml.parse(fs.readFileSync('./configs/config.yml', 'utf8'));
-const TOKEN = config.general.token;
-
 // Client init //
 const client = new BotClient();
-client.login(TOKEN);
+client.login(process.env.TOKEN);
 
 // Handlers init //
 const handlers = fs.readdirSync("./handlers");

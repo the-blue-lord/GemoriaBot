@@ -1,7 +1,5 @@
 general:
-  token: "MTE4MjQ0MDgzMDQ4OTg3NDQ0Mg.GMsblN.3QdTdOfsac0c_UfagpyCVFV_UtgiZY4JvXUjMA"
-  guild: "1166107544788422686" # "1093573186307751987"
-  client: "1182440830489874442"
+  info: "info"
 panel:
   timestamp: true
   color: "#13ebf7"

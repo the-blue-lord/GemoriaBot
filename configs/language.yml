@@ -1,0 +1,53 @@
+tickets:
+  panel_title: "Panel Title"
+  panel_message: "Panel Message"
+  questionnaire_title: "Questionario"
+  modal_answer: "Your ticket channel has been successfully created, you can click the button below to be redirected"
+  user_added: "The user was successfully added to the ticket!"
+  user_removed: "The user was successfully removed from the ticket!"
+  ticket_claimed: "The ticket was successfully claimed!"
+  ticket_unclaimed: "The ticket was unclaimed sccessfully!"
+
+
+commands:
+  tck_create:
+    user_option:
+      name: "user"
+      description: "The user you are creating the ticket for"
+    category_option:
+      name: "ticket-category"
+      description: "The category of the ticket you are creating"
+
+  tck_add:
+    user_option:
+      name: "user"
+      description: "The user to add to the ticket"
+    ticket_option:
+      name: "ticket"
+      description: "The ticket where to add the user"
+
+  tck_remove:
+    user_option:
+      name: "user"
+      description: "The user to remove from the ticket"
+    ticket_option:
+      name: "ticket"
+      description: "The ticket where to remove the user"
+
+  tck_claim:
+    ticket_option:
+      name: "ticket"
+      description: "The ticket to claim"
+
+  tck_unclaim:
+    ticket_option:
+      name: "ticket"
+      description: "The ticket to unclaim"
+
+  tck_assign:
+    user_option:
+      name: "user"
+      description: "The helper to assign the ticket to"
+    ticket_option:
+      name: "ticket"
+      description: "The ticket to assign the helper to"

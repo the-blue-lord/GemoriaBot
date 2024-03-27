@@ -1,0 +1,72 @@
+# __________________________________________________
+#
+# COMMANDS CONFIGURATION, SEE BELOW FOR FURTHER INFORMATION
+# 
+# <command name>:
+#   description: <the description of the command> (string)
+#   enabled: <weather the command should be shown or not> (true/false)
+#   whitelist: <list of roles ids wich are surely always allowed to run the command> (roles id)
+#   - <role id 1>
+#   - <role id 2>
+#   blacklist: <list of roles ids wich are surely never allowed to run the command> (roles id)
+#   - <role id 1>
+#   - <role id 2>
+#   unlisted: <weather people who are not whitelisted nor blacklisted should be able to run the command> (true/false)
+# 
+# __________________________________________________
+
+ping:
+  description: "Replies with pong"
+  enabled: true
+  blacklist:
+  - "1183701090940768346"
+  unlisted: true
+
+tck_panel:
+  description: "Sends embed for ticket selection"
+  enabled: true
+  whitelist:
+  - "1183901664541941831"
+  unlisted: false
+
+tck_create:
+  description: "Manually creates a ticket"
+  enabled: true
+  whitelist:
+  - "1166995041642876938"
+  unlisted: false
+
+tck_add:
+  description: "Adds a user to a ticket"
+  enabled: true
+  whitelist:
+  - "1166995041642876938"
+  unlisted: false
+
+tck_remove:
+  description: "Removes a user from a ticket"
+  enabled: true
+  whitelist:
+  - "1166995041642876938"
+  unlisted: false
+
+tck_claim:
+  description: "Makes a helper to claim a ticket"
+  enabled: true
+  whitelist:
+  - "1166995041642876938"
+  unlisted: false
+
+tck_unclaim:
+  description: "Unclaims a claimed ticket"
+  enabled: true
+  whitelist:
+  - "1166995041642876938"
+  unlisted: false
+
+tck_assign:
+  description: "Assigns a ticket to a helper"
+  enabled: true
+  whitelist:
+  - "1183901664541941831"
+  unlisted: false

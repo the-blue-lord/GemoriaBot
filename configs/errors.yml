@@ -1,0 +1,55 @@
+footer: "Error message"
+embeds:
+- id: "blacklisted_for_command"
+  title: "Blacklisted"
+  description: "You are unable to run this command since you have been blackilisted."
+  timestamp: true
+  color: "#ff0000"
+
+- id: "unallowed_for_command"
+  title: "Not enough permissions"
+  description: "You are unable to run this command as you lack permissions to do so.\nIf you think you should be able to run this command, please get in touch with the server owners."
+  timestamp: true
+  color: "#ff0000"
+
+- id: "no_panel_title"
+  title: "Unexistent panel title"
+  description: "The panel title has not been set in `./configs/language` at `tickets.panel_title`."
+  timestamp: true
+  color: "#ff0000"
+
+- id: "no_panel_description"
+  title: "Unexistent panel description"
+  description: "The panel message has not been set in `./configs/language` at `tickets.panel_message`."
+  timestamp: true
+  color: "#ff0000"
+
+- id: "no_categories"
+  title: "Missing categories"
+  description: "The categories for tickets have not been seet in `./configs/tickets.yml` at `categories`."
+  timestamp: true
+  color: "#ff0000"
+
+- id: "no_ticket_channel"
+  title: "The channel is not a ticket"
+  description: "The channel selected does not appear to be inside the ticket category, to run this command outside of the ticket category you should specify the ticket channel"
+  timestamp: true
+  color: "#ff0000"
+
+- id: "member_unremovable"
+  title: "The user cannot be removed"
+  description: "Unable to remove this user since it has got a role wich gives acces to all tickets"
+  timestamp: true
+  color: "#ff0000"
+
+- id: "ticket_already_claimed"
+  title: "The ticket has already been claimed"
+  description: "The ticket you are trying to cliam has already been claimed or assigned"
+  timestamp: true
+  color: "#ff0000"
+
+- id: "ticket_not_claimed"
+  title: "The ticket has not been claimed"
+  description: "The ticket you are trying to uncliam has not been claimed nor assigned"
+  timestamp: true
+  color: "#ff0000"

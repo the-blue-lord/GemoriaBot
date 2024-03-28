@@ -1,6 +1,9 @@
 const Command = require("../../structures/Command");
 const { ApplicationCommandOptionType } = require("discord.js");
 const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
+const getTicketChannel = require("../../utilis/ticketManager/getTicketChannel");
+const getTicketClaimer = require("../../utilis/ticketManager/getTicketClaimer");
+const claimTicket = require("../../utilis/ticketManager/claimTicket");
 
 module.exports = class TckClaim extends Command {
     constructor(client) {
@@ -35,19 +38,22 @@ module.exports = class TckClaim extends Command {
             return;
         }
 
-        let channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
-        if(!channelId) channelId = interaction.channel.id;
-        const channel = interaction.guild.channels.cache.find((c) => c.id == channelId);
+        const channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
+        const channel = getTicketChannel(channelId, interaction);
 
-        if(channel.parentId != client.tickets.category_id && channel.parentId != client.tickets.priority_category_id){
+        if(channel == "no_ticket_channel") {
             sendErrorEmbed(client, interaction, "no_ticket_channel");
             return;
         }
 
-        if(channel.name.split("・")[2]) {
+        if(getTicketClaimer(channel)) {
             sendErrorEmbed(client, interaction, "ticket_already_claimed");
             return;
         }
+
+        claimTicket(channel, interaction.member, interaction);
+
+        return;
 
         const emoji = channel.name.split("・")[0];
         const username = channel.name.split("・")[1];

@@ -1,6 +1,9 @@
 const Command = require("../../structures/Command");
 const { ApplicationCommandOptionType } = require("discord.js");
 const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
+const getTicketChannel = require("../../utilis/ticketManager/getTicketChannel");
+const getTicketClaimer = require("../../utilis/ticketManager/getTicketClaimer");
+const unclaimTicket = require("../../utilis/ticketManager/unclaimTicket");
 
 module.exports = class TckUnclaim extends Command {
     constructor(client) {
@@ -35,14 +38,22 @@ module.exports = class TckUnclaim extends Command {
             return;
         }
 
-        let channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
-        if(!channelId) channelId = interaction.channel.id;
-        const channel = interaction.guild.channels.cache.find((c) => c.id == channelId);
+        const channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
+        const channel = getTicketChannel(channelId, interaction);
 
-        if(channel.parentId != client.tickets.category_id && channel.parentId != client.tickets.priority_category_id) {
+        if(channel == "no_ticket_channel") {
             sendErrorEmbed(client, interaction, "no_ticket_channel");
             return;
         }
+
+        if(!getTicketClaimer(channel)) {
+            sendErrorEmbed(client, interaction, "ticket_not_claimed");
+            return;
+        }
+
+        unclaimTicket(channel, interaction);
+
+        return;
 
         if(!channel.name.split("・")[2]) {
             sendErrorEmbed(client, interaction, "ticket_not_claimed");

@@ -1,7 +1,7 @@
 const Command = require("../../structures/Command");
 const { ApplicationCommandOptionType } = require("discord.js");
 const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
-const getTicketChannel = require("../../utilis/getTicketChannel");
+const getTicketChannel = require("../../utilis/ticketManager/getTicketChannel");
 
 module.exports = class TckAdd extends Command {
     constructor(client) {
@@ -47,10 +47,6 @@ module.exports = class TckAdd extends Command {
 
         const channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
         const channel = getTicketChannel(channelId, interaction);
-
-        //let channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
-        //if(!channelId) channelId = interaction.channel.id;
-        //const channel = interaction.guild.channels.cache.find((c) => c.id == channelId);
 
         if(channel == "no_ticket_channel") {
             sendErrorEmbed(client, interaction, "no_ticket_channel");

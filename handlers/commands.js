@@ -8,8 +8,8 @@ module.exports.init = async (client) => {
     const commandsData = [];
     
     commandsFolders.forEach((commandFolder) => {
-    const commands = fs.readdirSync("./commands/" + commandFolder);
-    const jsCommands = commands.filter((c) => c.split(".").pop() === "js");
+        const commands = fs.readdirSync("./commands/" + commandFolder);
+        const jsCommands = commands.filter((c) => c.split(".").pop() === "js");
 
         jsCommands.forEach((command) => {
             const commandClass = require("../commands/" + commandFolder + "/" + command);

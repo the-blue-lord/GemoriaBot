@@ -43,11 +43,3 @@ commands:
     ticket_option:
       name: "ticket"
       description: "The ticket to unclaim"
-
-  tck_assign:
-    user_option:
-      name: "user"
-      description: "The helper to assign the ticket to"
-    ticket_option:
-      name: "ticket"
-      description: "The ticket to assign the helper to"

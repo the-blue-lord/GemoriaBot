@@ -15,7 +15,7 @@ module.exports.init = async (client) => {
             const commandClass = require("../commands/" + commandFolder + "/" + command);
             const commandObject = new commandClass(client);
 
-            commandsData.push(commandObject.getData());
+            if(commandObject.enabled) commandsData.push(commandObject.getData());
         });
     });
 

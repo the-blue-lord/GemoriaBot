@@ -1,5 +1,6 @@
 general:
   info: "info"
+
 panel:
   timestamp: true
   color: "#13ebf7"

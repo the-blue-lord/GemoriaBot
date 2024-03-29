@@ -1,9 +1,12 @@
 category_id: "1187112364898799746"
 priority_category_id: "1217200478694277222"
+
 authorized_roles: 
   - "1166995041642876938"
+
 priority_role: "1216187687191580692"
 priority_emoji: "🚨"
+
 categories:
 - name: "Supporto Generale"
   description: "Informazioni, Segnalazioni, Bug e Contestazioni"

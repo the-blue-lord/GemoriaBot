@@ -1,4 +1,5 @@
 footer: "Error message"
+
 embeds:
 - id: "blacklisted_for_command"
   title: "Blacklisted"

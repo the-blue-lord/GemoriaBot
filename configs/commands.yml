@@ -66,7 +66,7 @@ tck_unclaim:
 
 tck_assign:
   description: "Assigns a ticket to a helper"
-  enabled: false
+  enabled: true
   whitelist:
   - "1183901664541941831"
   unlisted: false

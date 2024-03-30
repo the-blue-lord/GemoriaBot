@@ -3,7 +3,11 @@ module.exports = (channelId, interaction) => {
 
     const channel = interaction.guild.channels.cache.find(c => c.id == ticketChannelId);
 
-    const channelIsTicket = channel.parentId == interaction.client.tickets.category_id || channel.parentId == interaction.client.tickets.priority_category_id;
+    const channelIsTicket = [
+        interaction.client.tickets.category_id,
+        interaction.client.tickets.priority_category_id,
+        interaction.client.tickets.closed_category_id
+    ].includes(channel.parentId);
 
     const ticketChannel = channelIsTicket ? channel : "no_ticket_channel";
 

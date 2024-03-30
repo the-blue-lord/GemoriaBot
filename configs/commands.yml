@@ -80,7 +80,7 @@ tck_close:
 
 tck_delete:
   description: "Deletes a ticket"
-  enabled: false
+  enabled: true
   whitelist:
   - "1166995041642876938"
   unlisted: false

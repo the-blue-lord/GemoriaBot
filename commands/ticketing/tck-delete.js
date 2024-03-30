@@ -1,5 +1,8 @@
 const Command = require("../../structures/Command");
 const { ApplicationCommandOptionType } = require("discord.js");
+const getTicketChannel = require("../../utilis/ticketManager/getTicketChannel");
+const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
+const deleteTicket = require("../../utilis/ticketManager/deleteTicket");
 
 module.exports = class TckClose extends Command {
     constructor(client) {
@@ -30,6 +33,20 @@ module.exports = class TckClose extends Command {
     }
 
     run(client, interaction) {
-        // run some deep shit here //
+        if(!this.memberIsAllowed(interaction)) {
+            return;
+        }
+
+        const channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
+        const channel = getTicketChannel(channelId, interaction);
+
+        if(channel == "no_ticket_channel") {
+            sendErrorEmbed(client, interaction, "no_ticket_channel");
+            return;
+        }
+
+        deleteTicket(channel, interaction);
+
+        return;
     }
 }

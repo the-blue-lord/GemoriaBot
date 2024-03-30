@@ -73,7 +73,7 @@ tck_assign:
 
 tck_close:
   description: "Closes an opened ticket"
-  enabled: false
+  enabled: true
   whitelist:
   - "1166995041642876938"
   unlisted: false

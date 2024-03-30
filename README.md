@@ -2,7 +2,7 @@
 Bot for Gemoria
 
 
-# Setup Bot
+# Bot Setup
 To setup the the sentive information add a file called `.env` in the root directory and set it's content as follows.
 
 `TOKEN = <bot's token> `

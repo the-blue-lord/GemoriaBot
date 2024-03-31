@@ -54,3 +54,9 @@ embeds:
   description: "The ticket you are trying to uncliam has not been claimed nor assigned"
   timestamp: true
   color: "#ff0000"
+
+- id: "closed_ticket"
+  title: "The ticket is closed"
+  description: "To perform this action the ticket must be open, you can open it with `/tck-reopen <ticket_channel>`"
+  timestamp: true
+  color: "#ff0000"

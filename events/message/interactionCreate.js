@@ -6,7 +6,7 @@ module.exports = class InteractionCreate {
         this.client = client;
     }
 
-    run(interaction) {
+    async run(interaction) {
         if(interaction.isChatInputCommand()) {
             commandsHandler(this.client, interaction);
             return;
@@ -21,6 +21,7 @@ module.exports = class InteractionCreate {
 
         if(interaction.isModalSubmit()) {
             if(interaction.customId.startsWith("asker")) {
+                await interaction.deferReply({ephemeral: true});
                 createTicket(this.client, interaction);
                 return;
             }

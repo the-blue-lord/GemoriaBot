@@ -14,9 +14,9 @@ module.exports = async (channel, interaction) => {
 
     await channel.setParent(interaction.client.tickets.closed_category_id);
 
-    interaction.reply({
+    interaction.editReply({
         content: "The ticket was successfully closed!",
-        ephemeral: "true"
+        ephemeral: true
     });
 
     return;

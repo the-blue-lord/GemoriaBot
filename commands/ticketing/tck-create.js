@@ -4,57 +4,26 @@ const createTicketChannel = require("../../utilis/ticketManager/createTicketChan
 
 module.exports = class TckCreate extends Command {
     constructor(client) {
-        super(client);
+        super(client, "tck_create");
 
-        this.commandData = client.commands.tck_create;
-        this.optionsData = client.language.commands.tck_create;
-
-        this.name = "tck-create";
-        this.description = this.commandData.description;
-
-        
-        this.options = [
-            {
-                name: this.optionsData.user_option.name,
-                description: this.optionsData.user_option.description,
-                type: ApplicationCommandOptionType.User,
-                required: true
-            },
-            {
-                name: this.optionsData.category_option.name,
-                description: this.optionsData.category_option.description,
-                type: ApplicationCommandOptionType.String,
-                required: true,
-                choices: []
-            }
-        ];
-
-        this.enabled = this.commandData.enabled;
-
-        this.whitelist = this.commandData.whitelist;
-        this.blacklist = this.commandData.blacklist;
-        this.unlisted = this.commandData.unlisted;
-
-        this.client = client;
-
-        client.tickets.categories.forEach((c) => {
-            this.options[1].choices.push({
-                name: c.name,
-                value: c.id
+        this.options.find(option => option.id == "cat").choices = [];
+        client.tickets.categories.forEach(category => {
+            this.options.find(option => option.id == "cat").choices.push({
+                name: category.name,
+                value: category.id
             });
         });
     }
 
-    run(client, interaction) {
+    async run(client, interaction) {
+        await interaction.deferReply({ephemeral: true});
+        
         if(!this.memberIsAllowed(interaction)) {
             return;
         }
 
-        const memberId = interaction.options.get(this.optionsData.user_option.name).value;
-        const member = interaction.guild.members.cache.find((m) => m.id == memberId);
-
-        const ticketCategoryId = interaction.options.get(this.optionsData.category_option.name).value;
-        const ticketCategory = client.tickets.categories.find((c) => c.id == ticketCategoryId);
+        const member = this.getUserOptionValue(interaction);
+        const ticketCategory = this.getCategoryOptionValue(interaction);
 
         createTicketChannel(client, member, ticketCategory, interaction);
 

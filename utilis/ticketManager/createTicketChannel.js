@@ -34,7 +34,7 @@ module.exports = async (client, member, ticketCategory, interaction) => {
             .setStyle(ButtonStyle.Link)
         );
 
-    interaction.reply({
+    interaction.editReply({
         content: client.language.tickets.modal_answer,
         components: [row],
         ephemeral: true

@@ -7,46 +7,16 @@ const claimTicket = require("../../utilis/ticketManager/claimTicket");
 
 module.exports = class TckAssign extends Command {
     constructor(client) {
-        super(client);
-
-        this.commandData = client.commands.tck_assign;
-        this.optionsData = client.language.commands.tck_assign;
-
-        this.name = "tck-assign";
-        this.description = this.commandData.description;
-
-        this.options = [
-            {
-                name: this.optionsData.user_option.name,
-                description: this.optionsData.user_option.description,
-                type: ApplicationCommandOptionType.User,
-                required: true
-            },
-            {
-                name: this.optionsData.ticket_option.name,
-                description: this.optionsData.ticket_option.description,
-                type: ApplicationCommandOptionType.Channel,
-                required: false
-            }
-        ];
-
-        this.enabled = this.commandData.enabled;
-
-        this.whitelist = this.commandData.whitelist;
-        this.blacklist = this.commandData.blacklist;
-        this.unlisted = this.commandData.unlisted;
-
-        this.client = client;
+        super(client, "tck_assign");
     }
 
-    run(client, interaction) {
+    async run(client, interaction) {
+        await interaction.deferReply({ephemeral: true});
+        
         if(!this.memberIsAllowed(interaction)) return;
 
-        const memberId = interaction.options.get(this.optionsData.user_option.name).value;
-        const member = interaction.guild.members.cache.find(m => m.id == memberId);
-
-        const channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
-        const channel = getTicketChannel(channelId, interaction);
+        const member = this.getUserOptionValue(interaction);
+        const channel = getTicketChannel(this.getChannelOptionValue(interaction)?.id, interaction);
 
         if(channel == "no_ticket_channel") {
             sendErrorEmbed(client, interaction, "no_ticket_channel");

@@ -4,7 +4,7 @@ module.exports = async (channel, helper, interaction) => {
     await channel.setName(newChannelName);
 
     if(newChannelName == channel.name) {
-        interaction.reply({
+        interaction.editReply({
             content: interaction.client.language.tickets.ticket_claimed,
             ephemeral: true
         });

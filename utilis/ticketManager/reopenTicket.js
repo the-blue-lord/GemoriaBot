@@ -32,7 +32,7 @@ module.exports = async (channel, interaction) => {
     ) await channel.setParent(interaction.client.tickets.priority_category_id);
     else await channel.setParent(interaction.client.tickets.category_id);
 
-    interaction.reply({
+    interaction.editReply({
         content: interaction.client.language.tickets.ticket_reopened,
         ephemeral: true
     });

@@ -13,7 +13,7 @@ module.exports = (client, interaction, errorId) => {
     
     if(error.timestamp) embed.setTimestamp();
     
-    interaction.reply({
+    interaction.editReply({
         embeds: [embed],
         ephemeral: true
     });

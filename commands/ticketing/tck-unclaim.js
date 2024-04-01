@@ -7,39 +7,17 @@ const unclaimTicket = require("../../utilis/ticketManager/unclaimTicket");
 
 module.exports = class TckUnclaim extends Command {
     constructor(client) {
-        super(client);
-
-        this.commandData = client.commands.tck_unclaim;
-        this.optionsData = client.language.commands.tck_unclaim;
-
-        this.name = "tck-unclaim";
-        this.description = this.commandData.description;
-        
-        this.options = [
-            {
-                name: this.optionsData.ticket_option.name,
-                description: this.optionsData.ticket_option.description,
-                type: ApplicationCommandOptionType.Channel,
-                required: false
-            }
-        ];
-
-        this.enabled = this.commandData.enabled;
-
-        this.whitelist = this.commandData.whitelist;
-        this.blacklist = this.commandData.blacklist;
-        this.unlisted = this.commandData.unlisted;
-
-        this.client = client;
+        super(client, "tck_unclaim");
     }
 
     async run(client, interaction) {
+        await interaction.deferReply({ephemeral: true});
+        
         if(!this.memberIsAllowed(interaction)) {
             return;
         }
 
-        const channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
-        const channel = getTicketChannel(channelId, interaction);
+        const channel = getTicketChannel(this.getChannelOptionValue(interaction)?.id, interaction);
 
         if(channel == "no_ticket_channel") {
             sendErrorEmbed(client, interaction, "no_ticket_channel");
@@ -72,7 +50,7 @@ module.exports = class TckUnclaim extends Command {
             return;
         }
 
-        interaction.reply({
+        interaction.editReply({
             content: client.language.tickets.ticket_unclaimed,
             ephemeral: true
         });

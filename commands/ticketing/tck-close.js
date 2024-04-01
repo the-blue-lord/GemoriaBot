@@ -6,39 +6,17 @@ const closeTicket = require("../../utilis/ticketManager/closeTicket");
 
 module.exports = class TckClose extends Command {
     constructor(client) {
-        super(client);
-
-        this.commandData = client.commands.tck_close;
-        this.optionsData = client.language.commands.tck_close;
-
-        this.name = "tck-close";
-        this.description = this.commandData.description;
-
-        this.options = [
-            {
-                name: this.optionsData.ticket_option.name,
-                description: this.optionsData.ticket_option.description,
-                type: ApplicationCommandOptionType.Channel,
-                required: false
-            }
-        ];
-
-        this.enabled = this.commandData.enabled;
-
-        this.whitelist = this.commandData.whitelist;
-        this.blacklist = this.commandData.blacklist;
-        this.unlisted = this.commandData.unlisted;
-
-        this.client = client;
+        super(client, "tck_close");
     }
 
-    run(client, interaction) {
+    async run(client, interaction) {
+        await interaction.deferReply({ephemeral: true});
+
         if(!this.memberIsAllowed(interaction)) {
             return;
         }
 
-        const channelId = interaction.options.get(this.optionsData.ticket_option.name)?.value;
-        const channel = getTicketChannel(channelId, interaction);
+        const channel = getTicketChannel(this.getChannelOptionValue(interaction)?.id, interaction);
 
         if(channel == "no_ticket_channel") {
             sendErrorEmbed(client, interaction, "no_ticket_channel");

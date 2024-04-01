@@ -60,3 +60,9 @@ embeds:
   description: "To perform this action the ticket must be open, you can open it with `/tck-reopen <ticket_channel>`"
   timestamp: true
   color: "#ff0000"
+
+- id: "unclosed_ticket"
+  title: "The ticket is already opened"
+  description: "To reopen a ticket, it must have been closed before. Are you sure you selected the right ticket?"
+  timestamp: true
+  color: "#ff0000"

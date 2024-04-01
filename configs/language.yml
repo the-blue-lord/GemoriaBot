@@ -7,6 +7,8 @@ tickets:
   user_removed: "The user was successfully removed from the ticket!"
   ticket_claimed: "The ticket was successfully claimed!"
   ticket_unclaimed: "The ticket was unclaimed sccessfully!"
+  ticket_closed: "The ticket was successfully closed!"
+  ticket_reopened: "The ticket was successfully reopened!"
 
 
 commands:
@@ -61,3 +63,8 @@ commands:
     ticket_option:
       name: "ticket"
       description: "The ticket to delete"
+
+  tck_reopen:
+    ticket_option:
+      name: "ticket"
+      description: "The ticket to reopen"

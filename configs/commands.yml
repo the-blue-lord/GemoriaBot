@@ -82,5 +82,12 @@ tck_delete:
   description: "Deletes a ticket"
   enabled: true
   whitelist:
+  - "1183901664541941831"
+  unlisted: false
+
+tck_reopen:
+  description: "Reopens a closed ticket"
+  enabled: true
+  whitelist:
   - "1166995041642876938"
   unlisted: false

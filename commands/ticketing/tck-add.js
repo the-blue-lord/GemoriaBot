@@ -2,6 +2,7 @@ const Command = require("../../structures/Command");
 const { ApplicationCommandOptionType } = require("discord.js");
 const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
 const getTicketChannel = require("../../utilis/ticketManager/getTicketChannel");
+const sendSuccessEmbed = require("../../utilis/sendSuccessEmbed");
 
 module.exports = class TckAdd extends Command {
     constructor(client) {
@@ -25,10 +26,16 @@ module.exports = class TckAdd extends Command {
 
         channel.permissionOverwrites.create(member, { ViewChannel: true });
 
-        interaction.editReply({
-            content: client.language.tickets.user_added,
-            ephemeral: true
-        });
+        sendSuccessEmbed(client, interaction, "ticket_user_added", [
+            {
+                placeholder: "<user-added>",
+                value: "<@" + member.id + ">"
+            },
+            {
+                placeholder: "<ticket-channel>",
+                value: "<#" + channel.id + ">"
+            }
+        ]);
 
         return;
     }

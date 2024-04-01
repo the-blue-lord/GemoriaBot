@@ -4,6 +4,56 @@ embeds:
 - id: "ticket_created"
   title: "Ticket created"
   #variables available: <ticket-channel>
-  description: "The ticket channel <ticket-channel> has been successfully created.\nYou can click the button down below to be redirected to the ticket channel."
+  description: "The ticket channel <ticket-channel> has been successfully created.\nYou can click the button down below to be redirected to the ticket channel.\nYe-ha!"
   timestamp: true
   color: "#00ff00"
+  
+- id: "ticket_user_added"
+  title: "User added"
+  #variables available: <user-added>, <ticket-channel>
+  description: "The user <user-added> was successfully added to the ticket <ticket-channel>.\nYe-ha!"
+  timestamp: true
+  color: "#00ff00"
+  
+- id: "ticket_user_removed"
+  title: "User removed"
+  #variables available: <user-removed>, <ticket-channel>
+  description: "The user <user-removed> was successfully removed from the ticket <ticket-channel>.\nYe-ha!"
+  timestamp: true
+  color: "#00ff00"
+  
+- id: "ticket_claimed"
+  title: "Ticket claimed"
+  #variables available: <user-claimer>, <ticket-channel>
+  description: "The ticket <ticket-channel> has been successfully assigned to <user-claimer>.\nYe-ha!"
+  timestamp: true
+  color: "#00ff00"
+  
+- id: "ticket_unclaimed"
+  title: "Ticket unclaimed"
+  #variables available: <ticket-channel>
+  description: "The ticket <ticket-channel> has been successfully unclaimed.\nYe-ha!"
+  timestamp: true
+  color: "#00ff00"
+  
+- id: "ticket_closed"
+  title: "Ticket closed"
+  #variables available: <ticket-channel>
+  description: "The ticket <ticket-channel> has been successfully closed.\nYe-ha!"
+  timestamp: true
+  color: "#00ff00"
+
+- id: "ticket_deleted"
+  title: "Ticket deleted"
+  #variables available: <ticket-channel>
+  description: "The ticket <ticket-channel> has been successfully deleted.\nYe-ha!"
+  timestamp: true
+  color: "#00ff00"
+  
+- id: "ticket_reopened"
+  title: "Ticket created"
+  #variables available: <ticket-channel>
+  description: "The ticket <ticket-channel> has been successfully reopened.\nYe-ha!"
+  timestamp: true
+  color: "#00ff00"
+  

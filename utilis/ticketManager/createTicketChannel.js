@@ -35,14 +35,12 @@ module.exports = async (client, member, ticketCategory, interaction) => {
             .setStyle(ButtonStyle.Link)
         );
 
-    const successVariables = [
+    sendSuccessEmbed(client, interaction, "ticket_created", [
         {
             placeholder: "<ticket-channel>",
             value: "<#" + channel.id + ">"
         }
-    ];
-
-    sendSuccessEmbed(client, interaction, "ticket_created", [row], successVariables);
+    ], [row]);
 
     return channel;
 };

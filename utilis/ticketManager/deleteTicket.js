@@ -1,12 +1,16 @@
+const sendSuccessEmbed = require("../sendSuccessEmbed");
+
 module.exports = (channel, interaction) => {
     channel.delete();
 
-    if(channel.id != interaction) {
-        interaction.editReply({
-            content: "The ticket was deleted successfully!",
-            ephemeral: true
-        });
-    }
+    if(channel.id == interaction.channel.id) return;
+
+    sendSuccessEmbed(interaction.client, interaction, "ticket_deleted", [
+        {
+            placeholder: "<ticket-channel>",
+            value: "<#" + channel.id + ">"
+        }
+    ]);
 
     return;
 }

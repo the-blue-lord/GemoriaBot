@@ -1,4 +1,5 @@
 const sendErrorEmbed = require("../sendErrorEmbed");
+const sendSuccessEmbed = require("../sendSuccessEmbed");
 
 module.exports = async (channel, interaction) => {
     if(channel.parentId == interaction.client.tickets.closed_category_id) {
@@ -14,10 +15,12 @@ module.exports = async (channel, interaction) => {
 
     await channel.setParent(interaction.client.tickets.closed_category_id);
 
-    interaction.editReply({
-        content: "The ticket was successfully closed!",
-        ephemeral: true
-    });
+    sendSuccessEmbed(interaction.client, interaction, "ticket_closed", [
+        {
+            placeholder: "<ticket-channel>",
+            value: "<@" + channel.id + ">"
+        }
+    ]);
 
     return;
 };

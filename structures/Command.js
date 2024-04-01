@@ -2,7 +2,6 @@ const sendErrorEmbed = require("../utilis/sendErrorEmbed");
 
 module.exports = class Command {
     constructor(client, commandId) {
-        console.log(commandId);
         this.command = client.commands.find(command => command.id == commandId);
 
         this.name = this.command.name;

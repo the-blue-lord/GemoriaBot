@@ -8,7 +8,6 @@ module.exports = async (channel, interaction) => {
     }
 
     const newChannelName = channel.name.split(interaction.client.tickets.closed_emoji)[1];
-    console.log(newChannelName);
 
     await channel.setName(newChannelName);
 

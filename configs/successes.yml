@@ -1,0 +1,9 @@
+footer: "Success message"
+
+embeds:
+- id: "ticket_created"
+  title: "Ticket created"
+  #variables available: <ticket-channel>
+  description: "The ticket channel <ticket-channel> has been successfully created.\nYou can click the button down below to be redirected to the ticket channel."
+  timestamp: true
+  color: "#00ff00"

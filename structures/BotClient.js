@@ -37,6 +37,7 @@ module.exports = class BotClient extends Client {
         this.errors = yaml.parse(fs.readFileSync("./configs/errors.yml", "utf8"));
         this.language = yaml.parse(fs.readFileSync("./configs/language.yml", "utf8"));
         this.permissions = yaml.parse(fs.readFileSync("./configs/permissions.yml", "utf8"));
+        this.successes = yaml.parse(fs.readFileSync("./configs/successes.yml", "utf8"));
         this.tickets = yaml.parse(fs.readFileSync("./configs/tickets.yml", "utf8"));
     }
 

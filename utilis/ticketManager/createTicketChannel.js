@@ -1,4 +1,5 @@
 const { ChannelType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
+const sendSuccessEmbed = require("../sendSuccessEmbed");
 
 module.exports = async (client, member, ticketCategory, interaction) => {
     const authorizedRoles = client.tickets.authorized_roles;
@@ -34,11 +35,14 @@ module.exports = async (client, member, ticketCategory, interaction) => {
             .setStyle(ButtonStyle.Link)
         );
 
-    interaction.editReply({
-        content: client.language.tickets.modal_answer,
-        components: [row],
-        ephemeral: true
-    });
+    const successVariables = [
+        {
+            placeholder: "<ticket-channel>",
+            value: "<#" + channel.id + ">"
+        }
+    ];
+
+    sendSuccessEmbed(client, interaction, "ticket_created", [row], successVariables);
 
     return channel;
 };

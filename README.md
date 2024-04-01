@@ -16,8 +16,9 @@ CLIENT_ID = "<bot's client id>"
 ```
 
 ### Example
+**Down here** you can find an **example** of a possible `.env` file.
 >[!NOTE]
->The data in this example is completly random and isn't consistent for any bot.
+>The data in this example is completly random and is not consistent for any bot nor server.
 ```
 TOKEN = "PTF4MjQ0MDgzMDQ2OTj7NDQ0Mg.GMsblN.3QdTdTghYu0c_Ufa.pyCVFV_UtgiZY4JvXUjMA"
 GUILD_ID = "1347117620827556963"

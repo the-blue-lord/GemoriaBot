@@ -1,6 +1,6 @@
 const { ApplicationCommandOptionType } = require("discord.js");
 const Command = require("../../structures/Command.js");
-const createTicketChannel = require("../../utilis/ticketManager/createTicketChannel.js");
+const createTicketChannel = require("../../handlers/ticketHandlers/createTicketChannel.js");
 
 module.exports = class TckCreate extends Command {
     constructor(client) {

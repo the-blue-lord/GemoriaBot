@@ -1,5 +1,5 @@
 const Command = require("../../structures/Command.js");
-const buildPanel = require("../../utilis/embedBuilders/buildPanel.js");
+const buildPanel = require("../../builders/embedBuilders/buildPanel.js");
 
 module.exports = class TckPanel extends Command {
     constructor(client) {

@@ -1,5 +1,5 @@
-const sendErrorEmbed = require("../sendErrorEmbed");
-const sendSuccessEmbed = require("../sendSuccessEmbed");
+const sendErrorEmbed = require("../embedHandlers/sendErrorEmbed");
+const sendSuccessEmbed = require("../embedHandlers/sendSuccessEmbed");
 
 module.exports = async (channel, interaction) => {
     if(channel.parentId != interaction.client.tickets.closed_category_id) {

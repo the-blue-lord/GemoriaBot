@@ -1,8 +1,8 @@
 const Command = require("../../structures/Command");
 const { ApplicationCommandOptionType } = require("discord.js");
-const getTicketChannel = require("../../utilis/ticketManager/getTicketChannel");
-const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
-const deleteTicket = require("../../utilis/ticketManager/deleteTicket");
+const getTicketChannel = require("../../handlers/ticketHandlers/getTicketChannel");
+const sendErrorEmbed = require("../../handlers/embedHandlers/sendErrorEmbed");
+const deleteTicket = require("../../handlers/ticketHandlers/deleteTicket");
 
 module.exports = class TckDelete extends Command {
     constructor(client) {

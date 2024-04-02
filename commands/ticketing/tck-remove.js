@@ -1,8 +1,8 @@
 const Command = require("../../structures/Command");
 const { ApplicationCommandOptionType } = require("discord.js");
-const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
-const getTicketChannel = require("../../utilis/ticketManager/getTicketChannel");
-const sendSuccessEmbed = require("../../utilis/sendSuccessEmbed");
+const sendErrorEmbed = require("../../handlers/embedHandlers/sendErrorEmbed");
+const getTicketChannel = require("../../handlers/ticketHandlers/getTicketChannel");
+const sendSuccessEmbed = require("../../handlers/embedHandlers/sendSuccessEmbed");
 
 module.exports = class TckRemove extends Command {
     constructor(client) {

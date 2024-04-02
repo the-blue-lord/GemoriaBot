@@ -1,5 +1,5 @@
 const { ChannelType, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require("discord.js");
-const sendSuccessEmbed = require("../sendSuccessEmbed");
+const sendSuccessEmbed = require("../embedHandlers/sendSuccessEmbed");
 
 module.exports = async (client, member, ticketCategory, interaction) => {
     const categoryEmoji = ticketCategory.emoji;

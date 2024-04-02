@@ -1,8 +1,8 @@
 const { ApplicationCommandOptionType } = require("discord.js");
 const Command = require("../../structures/Command");
-const getTicketChannel = require("../../utilis/ticketManager/getTicketChannel");
-const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
-const reopenTicket = require("../../utilis/ticketManager/reopenTicket");
+const getTicketChannel = require("../../handlers/ticketHandlers/getTicketChannel");
+const sendErrorEmbed = require("../../handlers/embedHandlers/sendErrorEmbed");
+const reopenTicket = require("../../handlers/ticketHandlers/reopenTicket");
 
 module.exports = class TckReopen extends Command {
     constructor(client) {

@@ -1,5 +1,5 @@
 const { ChatInputCommandInteraction } = require("discord.js");
-const { commandsHandler, askTicketQuestions, createTicket } = require("../../utilis/interactionManager/functionsExporter");
+const { commandsHandler, askTicketQuestions, createTicket } = require("../../handlers/interactionHandlers/functionsExporter");
 
 module.exports = class InteractionCreate {
     constructor(client) {

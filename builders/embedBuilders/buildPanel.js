@@ -1,5 +1,5 @@
 const { EmbedBuilder, StringSelectMenuBuilder, ActionRowBuilder, StringSelectMenuOptionBuilder } = require("discord.js");
-const sendErrorEmbed = require("../sendErrorEmbed");
+const sendErrorEmbed = require("../../handlers/embedHandlers/sendErrorEmbed");
 
 module.exports = (client, interaction) => {
     const panelEmbed = getPanelEmbed(client, interaction);

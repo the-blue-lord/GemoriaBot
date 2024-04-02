@@ -1,4 +1,4 @@
-const sendErrorEmbed = require("../../utilis/sendErrorEmbed");
+const sendErrorEmbed = require("../../handlers/embedHandlers/sendErrorEmbed");
 
 module.exports = class Error {
     constructor(client) {

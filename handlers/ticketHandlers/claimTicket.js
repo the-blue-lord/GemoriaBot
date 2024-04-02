@@ -1,4 +1,4 @@
-const sendSuccessEmbed = require("../sendSuccessEmbed");
+const sendSuccessEmbed = require("../embedHandlers/sendSuccessEmbed");
 
 module.exports = async (channel, helper, interaction) => {
     const newChannelName = channel.name + "・" + helper.user.username;

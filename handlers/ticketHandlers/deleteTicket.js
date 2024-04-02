@@ -1,4 +1,4 @@
-const sendSuccessEmbed = require("../sendSuccessEmbed");
+const sendSuccessEmbed = require("../embedHandlers/sendSuccessEmbed");
 
 module.exports = (channel, interaction) => {
     channel.delete();

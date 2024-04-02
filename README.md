@@ -5,7 +5,7 @@ Bot for Gemoria
 > [!WARNING]
 > Skipping the bot setup will cause the code to not work.
 
-To **setup the bot** the sentive information **add a file** called `.env` in the root directory and set it's **content as follows**.
+To **setup the bot** sentive information **add a file** called `.env` in the root directory and set it's **content as follows**.
 >[!IMPORTANT]
 >In the final `.env` file must not appear the symbols `<` nor `>`.
 

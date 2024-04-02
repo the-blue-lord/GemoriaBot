@@ -18,7 +18,7 @@ module.exports = async (channel, interaction) => {
     sendSuccessEmbed(interaction.client, interaction, "ticket_closed", [
         {
             placeholder: "<ticket-channel>",
-            value: "<@" + channel.id + ">"
+            value: "<#" + channel.id + ">"
         }
     ]);
 

@@ -24,7 +24,7 @@ module.exports = class TckAdd extends Command {
             return;
         }
 
-        channel.permissionOverwrites.create(member, { ViewChannel: true });
+        await channel.permissionOverwrites.create(member, { ViewChannel: true });
 
         sendSuccessEmbed(client, interaction, "ticket_user_added", [
             {

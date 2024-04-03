@@ -39,7 +39,7 @@ module.exports = class TckRemove extends Command {
             return;
         }
 
-        channel.permissionOverwrites.create(member, { ViewChannel: false });
+        await channel.permissionOverwrites.create(member, { ViewChannel: false });
 
         sendSuccessEmbed(client, interaction, "ticket_user_removed", [
             {

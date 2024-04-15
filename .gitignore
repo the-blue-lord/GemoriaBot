@@ -1,1 +1,6 @@
+# Compiled class file
+/node_modules
+/products
+/transcripts
+json.sqlite
 .env

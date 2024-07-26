@@ -5,8 +5,9 @@ module.exports = class Ping extends Command{
         super(client, "ping");
     }
 
-    run(client, interaction) {
-        interaction.deferReply({ephemeral: true});
+    async run(client, interaction) {
+        await interaction.deferReply({ephemeral: true});
+        
         if(!this.memberIsAllowed(interaction)) {
             return;
         }
